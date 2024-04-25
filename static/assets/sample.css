@@ -1,0 +1,29 @@
+/* framework */
+.sample-page{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sample-wrap-content{
+  background-color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.sample-wrap-content-title{
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1f2328;
+}
+
+.left-content{
+  flex: 1;
+}
+
+.right-content{
+  width: 28vw;
+}

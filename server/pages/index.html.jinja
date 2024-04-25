@@ -1,0 +1,65 @@
+{% extends "layout/base.html.jinja" %}
+{# https://bootstrapdoc.com/docs/5.0/forms/form-control #}
+{% block content %}
+<div class="sample-page">
+    <main class="left-content sample-wrap-content">
+        <div class="reports">
+            {# <ul class="reports-list">
+                {% for report in context['reports'] %}
+                <li class="report-item">
+                    <div>
+
+                    </div>
+                </li>
+                {% endfor %}
+            </ul> #}
+            <h5 class="sample-wrap-content-title">History</h5>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr class="table-primary">
+                        <th scope="col">Report Name</th>
+                        <th scope="col">Folder Lcoation</th>
+                        <th scope="col">Create Time</th>
+                        <th scope="col">Operate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for report in context['reports'] %}
+                    <tr>
+                        <td>
+                            {{ report['name'] }}
+                        </td>
+                        <td>
+                            {{ report['relative_location'] }}
+                        </td>
+                        <td>
+                            {{ report['create_time'] }}
+                        </td>
+                        <td>
+                            <a type="button" target="_blank" href="{{ '/static/dist/reports' + report['relative_location'] + '/report.html' }}" class="btn btn-outline-success btn-sm">Preview</a>
+                            <button type="button" class="btn btn-outline-primary btn-sm">Download</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+    {# <menu class="right-content sample-wrap-content">
+        <div class="form-content">
+            <h5 class="sample-wrap-content-title">Create</h5>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Project Name</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Remarks</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn btn-primary" type="button">Submit</button>
+        </div>
+    </menu> #}
+</div>
+{% endblock %}
