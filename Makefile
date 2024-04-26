@@ -9,5 +9,5 @@ install:
 dev:
 	python run.py
 
-test-report:
-	python test.py
+report:
+	python test_generate.py

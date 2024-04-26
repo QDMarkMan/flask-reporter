@@ -6,6 +6,7 @@
 
 - [Flask reporter](#flask-reporter)
   - [Table of Contents](#table-of-contents)
+  - [Before we start](#before-we-start)
   - [Background](#background)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -14,6 +15,10 @@
   - [Features](#features)
   - [FAQ](#faq)
   - [LICENSE](#license)
+
+## Before we start
+
+**This Project just a demo for report, and an implementation method for this kind of project.**
 
 ## Background
 
@@ -30,8 +35,12 @@ pip install -r requirements.txt
 
 ## Usage
 
-``` js
+```bash
+# Generate report
+make report
 
+# Run dev server
+make dev
 ```
 
 ## Changelog
