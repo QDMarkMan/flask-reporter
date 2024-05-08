@@ -8,6 +8,7 @@
   - [Table of Contents](#table-of-contents)
   - [Before we start](#before-we-start)
   - [Background](#background)
+  - [Folder structure](#folder-structure)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Changelog](#changelog)
@@ -23,6 +24,20 @@
 ## Background
 
 > If you want to generate a report and view it in a web page by easy way, you can use this project template.
+
+## Folder structure
+
+```shell
+.
+├── flask-reporter
+│   ├── server                 # Flask server folder
+│   ├── config.py              # Flask server folder
+│   ├── Makefile               # Makefile for project
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── test_generate.py       # Test generate report
+│   └── run.py                 # Run http server
+```
 
 ## Installation
 
