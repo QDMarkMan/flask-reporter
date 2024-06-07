@@ -1,0 +1,23 @@
+<h2 style="margin-top: 1em;">Top performing items</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Item Name</th>
+            <th>Cost per Unit</th>
+            <th>Units Sold</th>
+            <th>Revenue </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in salesTblRows %}
+        <tr>
+            <td>{{item.sNo}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.cPu}}</td>
+            <td>{{item.nUnits}}</td>
+            <td>{{item.revenue}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

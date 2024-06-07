@@ -1,26 +1,23 @@
-from flask import render_template, current_app as app
-from rgp.reporter import core
+from flask import current_app as app
+from flask import render_template
 from nanoid import generate
 
-@app.route('/')
+from rgp.reporter import core
+
+
+@app.route("/")
 def index():
     context = {
-        "project": {
-            "special_name": "special_name",
-            "name": "name"
-        },
-        "reports": core.get_local_reports()
+        "project": {"special_name": "special_name", "name": "name"},
+        "reports": core.get_local_reports(),
     }
 
-    return render_template('index.html.jinja', context=context)
+    return render_template("index.html.jinja", context=context)
 
-@app.get('/api/v1/reports')
+
+@app.get("/api/v1/reports")
 def report():
     reports = core.get_local_reports()
     for report in reports:
         report["id"] = generate()
-    return {
-        "code": 200,
-        "message": "Success",
-        "data": reports
-    }
+    return {"code": 200, "message": "Success", "data": reports}

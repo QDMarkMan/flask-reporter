@@ -1,13 +1,11 @@
 # type: ignore[attr-defined]
 from enum import Enum
-from random import choice
-from typing import Optional
 
 import typer
 from rich.console import Console
 
 from rgp import version
-from rgp.cmd import hello, generate, run_server
+from rgp.cmd import generate, run_server
 
 
 class Color(str, Enum):
@@ -33,17 +31,9 @@ def version_callback(print_version: bool) -> None:
         console.print(f"[yellow]rgp[/] version: [bold blue]{version}[/]")
         raise typer.Exit()
 
+
 @app.command(name="")
-def main(
-    name: str = typer.Option(..., help="Person to greet."),
-    color: Optional[Color] = typer.Option(
-        None,
-        "-c",
-        "--color",
-        "--colour",
-        case_sensitive=False,
-        help="Color for print. If not specified then choice will be random.",
-    ),
+def version(
     print_version: bool = typer.Option(
         None,
         "-v",
@@ -53,26 +43,23 @@ def main(
         help="Prints the version of the rgp package.",
     ),
 ) -> None:
-    """Print a greeting with a giving name."""
-    if color is None:
-        color = choice(list(Color))
+    """Show version."""
 
-    greeting: str = hello(name)
-    console.print(f"[bold {color}]{greeting}[/]")
 
 @app.command(name="server")
 def generate_report() -> None:
-    """Print a greeting with a giving name."""
-    console.print(f"[bold] Start run report preview server[/]")
+    """Start a preview server."""
+    console.print("[bold] Start run report preview server[/]")
     run_server()
+
 
 @app.command(name="generate")
 def generate_report(
-    name: str = typer.Option(..., help="Person to greet."),
+    name: str = typer.Option(..., help="Report name to generate."),
 ) -> None:
-    """Print a greeting with a giving name."""
+    """Generate a report."""
     console.print(f"[bold] Start build report {name}[/]")
-    generate()
+    generate(name=name)
 
 
 if __name__ == "__main__":

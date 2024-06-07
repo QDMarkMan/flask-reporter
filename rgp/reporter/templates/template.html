@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report for {{reportDtStr}}</title>
     <style>
-        body {
-            margin: 2em;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      body {
+        margin: 2em;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-        table,
-        th,
-        td {
-            border: 1px solid #555;
-            border-collapse: collapse;
-            padding: 0.25em;
-        }
+      table,
+      th,
+      td {
+          border: 1px solid #555;
+          border-collapse: collapse;
+          padding: 0.25em;
+      }
     </style>
     <!-- <style>
         {{bootstrapCSS}}
@@ -34,33 +34,13 @@
     <img class="img-fluid" src="data:image/png;base64, {{logoImg}}" alt="logo"
         style="float: left; width:50px; height:50px; margin-right: 0.5em;">
     <div>
-        <span>Daily sales report for {{reportDtStr}}</span><br>
-        <span>Acme Inc.</span>
+        <span>Daily report for {{reportDtStr}}</span><br>
+        <span>Reporter Inc.</span>
     </div>
     <hr>
-    <div style="margin-top: 2em;"></div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>S.No</th>
-                <th>Item Name</th>
-                <th>Cost per Unit</th>
-                <th>Units Sold</th>
-                <th>Revenue </th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in salesTblRows %}
-            <tr>
-                <td>{{item.sNo}}</td>
-                <td>{{item.name}}</td>
-                <td>{{item.cPu}}</td>
-                <td>{{item.nUnits}}</td>
-                <td>{{item.revenue}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+    {% include './blocks/project.html' %}
+
+    {% include './blocks/table.html' %}
 
     <h2>Top performing items</h2>
     <ul class="list-group">
