@@ -122,8 +122,13 @@ def get_reports_location():
     获取报告保存位置, 属于配置文件
     """
     dir_path = os.path.dirname(__file__)
-    print(dir_path)
-    return os.path.join(dir_path, "../static/dist/reports")
+    dist_path = os.path.join(dir_path, "../static/dist")
+    if not os.path.exists(dist_path):
+        os.makedirs(dist_path)
+    reports_path = os.path.join(dist_path, "reports")
+    if not os.path.exists(reports_path):
+        os.makedirs(reports_path)
+    return reports_path
 
 
 def get_local_reports():
