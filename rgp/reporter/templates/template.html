@@ -49,18 +49,8 @@
         {% endfor %}
     </ul>
     <p style="page-break-after: always;">&nbsp;</p>
-    <h2>Revenue Bar Chart</h2>
-    <div id="revenueBarChart"></div>
-    <script>
-        var data = [{x: [], y: [], type: 'bar'}];
-
-        {% for item in salesTblRows %}
-        data[0].x.push("{{item.name}}");
-        data[0].y.push("{{item.revenue}}");
-        {% endfor %}
-
-        Plotly.newPlot('revenueBarChart', data);
-    </script>
+    <h1>The Report</h1>
+    {% include './blocks/barchat.html' %}
 </body>
 
 </html>

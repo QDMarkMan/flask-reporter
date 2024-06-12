@@ -1,0 +1,12 @@
+<h2>Bar Chart</h2>
+<div id="revenueBarChart"></div>
+<script>
+    var data = [{x: [], y: [], type: 'bar'}];
+
+    {% for item in salesTblRows %}
+    data[0].x.push("{{item.name}}");
+    data[0].y.push("{{item.revenue}}");
+    {% endfor %}
+
+    Plotly.newPlot('revenueBarChart', data);
+</script>
